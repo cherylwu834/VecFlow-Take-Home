@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { useRouter } from 'next/navigation';
 
 const CheckboxItem = ({ index, label, checked, onChange }) => {
   return (
@@ -24,6 +25,7 @@ const CheckboxItem = ({ index, label, checked, onChange }) => {
 const SearchBar = () => {
   const [inputValue, setInputValue] = useState("");
   const [checkedItems, setCheckedItems] = useState([]);
+  const router = useRouter();
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -35,6 +37,10 @@ const SearchBar = () => {
         ? prev.filter((item) => item !== index)
         : [...prev, index]
     );
+  };
+
+  const handleSubmit = () => {
+    router.push(`/results?question=${inputValue}`)
   };
 
   const options = [
@@ -59,7 +65,7 @@ const SearchBar = () => {
           value={inputValue}
           onChange={handleInputChange}
         />
-        <button className="flex items-center justify-center p-2 bg-purple hover:bg-purple/80 transition duration-200 text-white rounded-md">
+        <button onClick={handleSubmit} className="flex items-center justify-center p-2 bg-purple hover:bg-purple/80 transition duration-200 text-white rounded-md">
           <Send size={16} />
         </button>
       </div>
