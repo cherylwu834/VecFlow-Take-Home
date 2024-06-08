@@ -47,7 +47,7 @@ const SearchBar = () => {
     <div className="border rounded-lg overflow-hidden p-4">
       <div className="flex">
         <select className="px-1 border-purple-200 text-purple-800 ring-0 border rounded-md">
-          <option value="option1">Option 1</option>
+          <option value="option1">Side_Letters</option>
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>
         </select>
@@ -55,11 +55,11 @@ const SearchBar = () => {
         <input
           type="text"
           className="px-4 w-full border-gray-300 focus:outline-none"
-          placeholder="Search..."
+          placeholder="Start your legal search here..."
           value={inputValue}
           onChange={handleInputChange}
         />
-        <button className="flex items-center justify-center p-2 bg-purple-700 hover:bg-purple-700/80 transition duration-200 text-white rounded-md">
+        <button className="flex items-center justify-center p-2 bg-purple hover:bg-purple/80 transition duration-200 text-white rounded-md">
           <Send size={16} />
         </button>
       </div>
